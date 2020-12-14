@@ -13,7 +13,8 @@ public class Main {
 		
 		int firstPlayerStart=0;
 		
-		System.out.println("1st Player Start Position is :"+firstPlayerStart);
+		System.out.println("*Note - 1st Player Start Position is :"+firstPlayerStart);
+	    System.out.println(" ");
 		
 		Random rand1=new Random();
 		int playerOneRoll=rand1.nextInt(7);
@@ -22,8 +23,33 @@ public class Main {
 		
 		
 		
+		Random rand2=new Random();
+		int choice=rand2.nextInt(3);
+		
+		switch(choice) {
+		
+		case 0:
+			System.out.println("Its NO PLAY!");
+			System.out.println("Player Stays at Same position");
+			break;
+		case 1:
+			System.out.println("Its LADDER!");
+			firstPlayerStart=firstPlayerStart+playerOneRoll;
+			System.out.println("New 1st Player position is :"+firstPlayerStart);
+			break;
+		case 2:
+			System.out.println("Its SNAKE!");
+			firstPlayerStart=firstPlayerStart-playerOneRoll;
+			System.out.println("New 1st Player position is :"+firstPlayerStart);
+			break;
+		
+		}
+		
+		
+		
 
 	}
 
 }
+
 
