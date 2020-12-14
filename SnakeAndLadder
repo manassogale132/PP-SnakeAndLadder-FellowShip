@@ -1,1 +1,20 @@
-.
+package SnakeLadder;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		
+		System.out.println("--Snake and Ladder Game Program--");
+		System.out.println("------------------------------------------------------------");
+		System.out.println(" ");
+		
+		int firstPlayerStart=0;
+		
+		System.out.println("1st Player Start Position is :"+firstPlayerStart);
+		
+	
+	}
+
+}
+
