@@ -13,10 +13,13 @@ public class Main {
 		
 		int firstPlayerStart=0;
 		
+		
 		System.out.println("*Note - 1st Player Start Position is :"+firstPlayerStart);
 	    System.out.println(" ");
 		
-		Random rand1=new Random();
+	while(firstPlayerStart != 100) {
+	    
+	    Random rand1=new Random();
 		int playerOneRoll=rand1.nextInt(7);
 		
 		System.out.println("1st Player rolls the die and gets :"+playerOneRoll);
@@ -31,25 +34,27 @@ public class Main {
 		case 0:
 			System.out.println("Its NO PLAY!");
 			System.out.println("Player Stays at Same position");
+			System.out.println(" ");
 			break;
 		case 1:
 			System.out.println("Its LADDER!");
 			firstPlayerStart=firstPlayerStart+playerOneRoll;
 			System.out.println("New 1st Player position is :"+firstPlayerStart);
+			System.out.println(" ");
 			break;
 		case 2:
 			System.out.println("Its SNAKE!");
 			firstPlayerStart=firstPlayerStart-playerOneRoll;
 			System.out.println("New 1st Player position is :"+firstPlayerStart);
+			System.out.println(" ");
 			break;
 		
 		}
-		
+		}
 		
 		
 
 	}
 
 }
-
 
