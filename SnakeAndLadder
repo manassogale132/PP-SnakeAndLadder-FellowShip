@@ -38,22 +38,42 @@ public class Main {
 		switch(choice) {
 		
 		case 0:
+			
 			System.out.println("Its NO PLAY!");
 			System.out.println("Player Stays at Same position");
 			System.out.println(" ");
 			firstPlayerCounter++;
 			break;
+			
 		case 1:
+			
 			System.out.println("Its LADDER!");
-			firstPlayerStart=firstPlayerStart+playerOneRoll;
-			System.out.println("New 1st Player position is :"+firstPlayerStart);
-			System.out.println(" ");
+			if(firstPlayerStart>100) {
+				firstPlayerStart=100;
+			
+				firstPlayerStart=firstPlayerStart+playerOneRoll;
+			System.out.println("New 2nd Player position is :"+firstPlayerStart);
+			}
+			else {
+				firstPlayerStart=firstPlayerStart+playerOneRoll;
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
+			}
 			firstPlayerCounter++;
 			break;
+			
 		case 2:
+			
 			System.out.println("Its SNAKE!");
-			firstPlayerStart=firstPlayerStart-playerOneRoll;
-			System.out.println("New 1st Player position is :"+firstPlayerStart);
+			if(firstPlayerStart<0) {
+				firstPlayerStart=0;
+			
+				firstPlayerStart=firstPlayerStart-playerOneRoll;
+			System.out.println("New 2nd Player position is :"+firstPlayerStart);
+			}
+			else {
+				firstPlayerStart=firstPlayerStart-playerOneRoll;
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
+			}
 			System.out.println(" ");
 			firstPlayerCounter++;
 			break;
@@ -78,9 +98,9 @@ public class Main {
 		
 		
 		Random rand4=new Random();
-		int choice=rand4.nextInt(3);
+		int choice1=rand4.nextInt(3);
 		
-		switch(choice) {
+		switch(choice1) {
 		
 		case 0:
 			System.out.println("Its NO PLAY!");
@@ -88,17 +108,35 @@ public class Main {
 			System.out.println(" ");
 			secondPlayerCounter++;
 			break;
+			
 		case 1:
 			System.out.println("Its LADDER!");
+			if(secondPlayerStart>100) {
+				secondPlayerStart=100;
+			
 			secondPlayerStart=secondPlayerStart+playerSecondRoll;
 			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			}
+			else {
+				secondPlayerStart=secondPlayerStart+playerSecondRoll;
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
+			}
 			System.out.println(" ");
 			secondPlayerCounter++;
 			break;
+			
 		case 2:
 			System.out.println("Its SNAKE!");
+			if(secondPlayerStart<0) {
+				secondPlayerStart=0;
+			
 			secondPlayerStart=secondPlayerStart-playerSecondRoll;
 			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			}
+			else {
+				secondPlayerStart=secondPlayerStart-playerSecondRoll;
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
+			}
 			System.out.println(" ");
 			secondPlayerCounter++;
 			break;
@@ -110,8 +148,8 @@ public class Main {
 	
 	System.out.println(" ");
 	System.out.println("---------------------------------------------------------------------------");
-	System.out.println("1st Player - Number of times the dice is rolled :"+firstPlayerCounter);
-	System.out.println("2nd Player - Number of times the dice is rolled :"+secondPlayerCounter);
+	System.out.println("1st Player - Number of times the dice is rolled to reach 100 is :"+firstPlayerCounter);
+	System.out.println("2nd Player - Number of times the dice is rolled to reach 100 is :"+secondPlayerCounter);
 	System.out.println("---------------------------------------------------------------------------");	
 	System.out.println(" ");
 	if(firstPlayerCounter<secondPlayerCounter) {
