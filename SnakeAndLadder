@@ -1,4 +1,4 @@
-.package SnakeLadder;
+package SnakeLadder;
 
 import java.util.Random;
 
@@ -14,11 +14,15 @@ public class Main {
 		int firstPlayerStart=0;
 		int firstPlayerCounter=0;
 		
+		int secondPlayerStart=0;
+		int secondPlayerCounter=0;
 		
-		System.out.println("*Note - 1st Player Start Position is :"+firstPlayerStart);
+		
+		System.out.println("*Note - 1st Player Start Position is :"+firstPlayerStart);            //First Player
 	    System.out.println(" ");
-		
-	while(firstPlayerStart != 100) {
+	
+	    
+	    while(firstPlayerStart != 100) {
 	  
 		
 	    Random rand1=new Random();
@@ -56,11 +60,65 @@ public class Main {
 		
 		}
 		}
+	    
+	//===========================================================================================================    
+	   
+	    System.out.println("*Note - 2nd Player Start Position is :"+secondPlayerStart);      //Second Player
+	    System.out.println(" ");
+	
+	    
+	    while(secondPlayerStart != 100) {
+	  
+		
+	    Random rand3=new Random();
+		int playerSecondRoll=rand3.nextInt(7);
+		
+		System.out.println("2nd Player rolls the die and gets :"+playerSecondRoll);
+		
+		
+		
+		Random rand4=new Random();
+		int choice=rand4.nextInt(3);
+		
+		switch(choice) {
+		
+		case 0:
+			System.out.println("Its NO PLAY!");
+			System.out.println("Player Stays at Same position");
+			System.out.println(" ");
+			secondPlayerCounter++;
+			break;
+		case 1:
+			System.out.println("Its LADDER!");
+			secondPlayerStart=secondPlayerStart+playerSecondRoll;
+			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			System.out.println(" ");
+			secondPlayerCounter++;
+			break;
+		case 2:
+			System.out.println("Its SNAKE!");
+			secondPlayerStart=secondPlayerStart-playerSecondRoll;
+			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			System.out.println(" ");
+			secondPlayerCounter++;
+			break;
+		
+		}
+		}   
+	    
+	    
+	
 	System.out.println(" ");
 	System.out.println("---------------------------------------------------------------------------");
-	System.out.println("Number of times the dice is rolled :"+firstPlayerCounter);
+	System.out.println("1st Player - Number of times the dice is rolled :"+firstPlayerCounter);
+	System.out.println("2nd Player - Number of times the dice is rolled :"+secondPlayerCounter);
 	System.out.println("---------------------------------------------------------------------------");	
-		
+	System.out.println(" ");
+	if(firstPlayerCounter<secondPlayerCounter) {
+		System.out.println("1st Player Wins!");
+	}else {
+		System.out.println("2nd Player Wins!");
+	}
 
 	}
 
