@@ -1,21 +1,36 @@
-package SnakeLadder;
-
-import java.util.Random;
-
 public class Main {
 
 	public static void main(String[] args) {
 		
-		
+
 		System.out.println("--Snake and Ladder Game Program--");
 		System.out.println("------------------------------------------------------------");
 		System.out.println(" ");
 		
-		int firstPlayerStart=0;
-		int firstPlayerCounter=0;
+		FirstPlayer playerOne=new  FirstPlayer();
+		SecondPlayer playerTwo=new SecondPlayer();
 		
-		int secondPlayerStart=0;
-		int secondPlayerCounter=0;
+			
+		playerOne.firstPlayer();
+		playerTwo.secondPlayer();
+	
+		playerOne.firstCounter();
+		playerTwo.secondCounter();
+		}
+			
+	}
+
+import java.util.Random;
+
+public class FirstPlayer {
+		
+	int firstPlayerStart=0;
+	int firstPlayerCounter=0;
+	int firstPlayerMinLimit=0;
+	int firstPlayerMaxLimit=100;
+	
+	public void firstPlayer() {
+	
 		
 		
 		System.out.println("*Note - 1st Player Start Position is :"+firstPlayerStart);            //First Player
@@ -47,43 +62,71 @@ public class Main {
 			
 		case 1:
 			
-			System.out.println("Its LADDER!");
-			if(firstPlayerStart>100) {
+			firstPlayerStart=firstPlayerStart+playerOneRoll;
+			if(firstPlayerStart>100)
+			{
 				firstPlayerStart=100;
-			
-				firstPlayerStart=firstPlayerStart+playerOneRoll;
-			System.out.println("New 2nd Player position is :"+firstPlayerStart);
+				System.out.println("Its LADDER!");
+				System.out.println("New 2nd Player position is :"+firstPlayerStart);
+				System.out.println(" ");
 			}
 			else {
-				firstPlayerStart=firstPlayerStart+playerOneRoll;
-				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
+			
+			System.out.println("Its LADDER!");
+			System.out.println("New 2nd Player position is :"+firstPlayerStart);
+			System.out.println(" ");
 			}
 			firstPlayerCounter++;
 			break;
 			
 		case 2:
-			
-			System.out.println("Its SNAKE!");
-			if(firstPlayerStart<0) {
-				firstPlayerStart=0;
-			
-				firstPlayerStart=firstPlayerStart-playerOneRoll;
-			System.out.println("New 2nd Player position is :"+firstPlayerStart);
+		
+			firstPlayerStart=firstPlayerStart-playerOneRoll;
+			if(firstPlayerStart>100)
+			{
+				firstPlayerStart=100;
+				System.out.println("Its LADDER!");
+				System.out.println("New 2nd Player position is :"+firstPlayerStart);
+				System.out.println(" ");
 			}
 			else {
-				firstPlayerStart=firstPlayerStart-playerOneRoll;
-				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
-			}
+			
+				System.out.println("Its LADDER!");
+			System.out.println("New 2nd Player position is :"+firstPlayerStart);
 			System.out.println(" ");
+			}
+			
+			
 			firstPlayerCounter++;
 			break;
 		
 		}
-		}
+		}	
 	    
-	//===========================================================================================================    
-	   
-	    System.out.println("*Note - 2nd Player Start Position is :"+secondPlayerStart);      //Second Player
+	    
+}
+	
+	public void firstCounter() {
+		System.out.println(" ");
+		System.out.println("1st Player - Number of times the dice is rolled to reach 100 is :"+firstPlayerCounter);
+		
+	}
+}
+
+
+import java.util.Random;
+
+public class SecondPlayer {
+	
+	int secondPlayerStart=0;
+	int secondPlayerCounter=0;
+	
+	
+	public void secondPlayer() {
+			
+		
+		
+		System.out.println("*Note - 2nd Player Start Position is :"+secondPlayerStart);      //Second Player
 	    System.out.println(" ");
 	
 	    
@@ -103,6 +146,7 @@ public class Main {
 		switch(choice1) {
 		
 		case 0:
+			
 			System.out.println("Its NO PLAY!");
 			System.out.println("Player Stays at Same position");
 			System.out.println(" ");
@@ -110,56 +154,50 @@ public class Main {
 			break;
 			
 		case 1:
-			System.out.println("Its LADDER!");
-			if(secondPlayerStart>100) {
-				secondPlayerStart=100;
 			
 			secondPlayerStart=secondPlayerStart+playerSecondRoll;
-			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			if(secondPlayerStart>100)
+			{
+				secondPlayerStart=100;
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);
 			}
 			else {
-				secondPlayerStart=secondPlayerStart+playerSecondRoll;
-				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
-			}
+			
+			System.out.println("Its LADDER!");
+			System.out.println("New 2nd Player position is :"+secondPlayerStart);
 			System.out.println(" ");
+			}
 			secondPlayerCounter++;
 			break;
 			
 		case 2:
-			System.out.println("Its SNAKE!");
-			if(secondPlayerStart<0) {
-				secondPlayerStart=0;
-			
+		
 			secondPlayerStart=secondPlayerStart-playerSecondRoll;
-			System.out.println("New 2nd Player position is :"+secondPlayerStart);
+			if(secondPlayerStart<0) 
+			{
+				secondPlayerStart=0;
+				System.out.println("Its SNAKE!");
+				System.out.println("New 2nd Player position is :"+secondPlayerStart);
+				System.out.println(" ");
 			}
 			else {
-				secondPlayerStart=secondPlayerStart-playerSecondRoll;
-				System.out.println("New 2nd Player position is :"+secondPlayerStart);	
-			}
+			System.out.println("Its SNAKE!");
+			System.out.println("New 2nd Player position is :"+secondPlayerStart);
 			System.out.println(" ");
+			}
 			secondPlayerCounter++;
 			break;
-		
+			    	
+			    }
+			    
+				} 
+				
+			
+			
+	}		
+	public void secondCounter() {
+		System.out.println(" ");
+		System.out.println("2nd Player - Number of times the dice is rolled to reach 100 is :"+secondPlayerCounter);
 		}
-		}   
-	    
-	    
 	
-	System.out.println(" ");
-	System.out.println("---------------------------------------------------------------------------");
-	System.out.println("1st Player - Number of times the dice is rolled to reach 100 is :"+firstPlayerCounter);
-	System.out.println("2nd Player - Number of times the dice is rolled to reach 100 is :"+secondPlayerCounter);
-	System.out.println("---------------------------------------------------------------------------");	
-	System.out.println(" ");
-	if(firstPlayerCounter<secondPlayerCounter) {
-		System.out.println("1st Player Wins!");
-	}else {
-		System.out.println("2nd Player Wins!");
-	}
-
-	}
-
 }
-
-
